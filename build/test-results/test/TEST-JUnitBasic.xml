@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="JUnitBasic" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-04-02T03:21:56" hostname="DESKTOP-4KAFSOH" time="0.01">
+<testsuite name="JUnitBasic" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-04-07T03:48:35" hostname="DESKTOP-4KAFSOH" time="0.009">
   <properties/>
-  <testcase name="verifySomeThing" classname="JUnitBasic" time="0.006"/>
+  <testcase name="verifySomeThing" classname="JUnitBasic" time="0.005"/>
   <testcase name="verifySomeThing2" classname="JUnitBasic" time="0.002"/>
   <system-out><![CDATA[BEFORE
 Este es mi test
