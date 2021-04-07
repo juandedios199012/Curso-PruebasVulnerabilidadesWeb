@@ -1,0 +1,51 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
+    }
+}
+
+apply plugin: "io.qameta.allure"
+apply plugin: 'java'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+def hostUT= !project.hasProperty('hostUT')?"https://todoist.com/":project.properties['hostUT']
+def proxyValue= !project.hasProperty('proxyValue')?"127.0.0.1:8080":project.properties['proxyValue']
+
+//systemProperty "hostUT",hostUT.toString()
+//systemProperty "proxyValue",proxyValue.toString()
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    //API - resteasy
+    compile 'org.jboss.resteasy:resteasy-jaxrs:3.0.8.Final'
+    compile 'org.jboss.resteasy:resteasy-client:3.0.8.Final'
+    compile 'org.jboss.resteasy:resteasy-multipart-provider:3.0.8.Final'
+    compile 'org.jboss.resteasy:resteasy-jackson-provider:3.0.8.Final'
+    compile 'org.glassfish.jersey.media:jersey-media-multipart:2.22.2'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.6.1'
+
+    //JSON
+    implementation group: 'org.json', name: 'json', version: '20210307'
+
+    //Allure
+    //testCompile group: 'io.qameta.allure', name: 'allure-junit4', version: '2.13.9'
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit4', version: '2.13.9'
+}
+
+allure {
+    version = '2.6.0'
+    autoconfigure = true
+    aspectjweaver = true
+}
